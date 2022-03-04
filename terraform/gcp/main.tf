@@ -25,7 +25,7 @@ terraform {
 resource "google_service_account" "autoneg" {
   project = var.project_id
 
-  account_id   = "autoneg"
+  account_id   = "autoneg-system"
   display_name = "Autoneg service account"
 }
 
@@ -43,7 +43,7 @@ data "google_iam_policy" "autoneg_iam_policy" {
     role = "roles/iam.workloadIdentityUser"
 
     members = [
-      format("serviceAccount:%s.svc.id.goog[autoneg-system/autoneg]", var.project_id)
+      format("serviceAccount:%s.svc.id.goog[autoneg-system/default]", var.project_id)
     ]
   }
 }
