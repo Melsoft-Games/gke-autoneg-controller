@@ -43,7 +43,7 @@ data "google_iam_policy" "autoneg_iam_policy" {
     role = "roles/iam.workloadIdentityUser"
 
     members = [
-      format("serviceAccount:%s.svc.id.goog[autoneg-system/default]", var.project_id)
+      format("serviceAccount:%s.svc.id.goog[autoneg-system/autoneg]", var.project_id)
     ]
   }
 }
